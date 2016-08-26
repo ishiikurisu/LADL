@@ -1,0 +1,8 @@
+function main()
+disp('# Exercicio da sala');
+trange = [0 10];
+y0 = [0 0];
+[t, y] = ode45('rlc', trange, y0);
+plot(t, y(:,1));
+disp('');
+disp('# Exercicio 1');
