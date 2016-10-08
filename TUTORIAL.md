@@ -110,3 +110,27 @@ Para realizar um commit, usamos:
 git add -A
 git commit -m "Mensagem de commit"
 ```
+
+TL;DR
+-----
+
+Em suma, seu fluxo de trabalho será:
+
+1. Carregar o trabalho salvo no repositório remoto:
+
+```
+git pull origin master
+```
+
+2. Fazer o trabalho que precisa ser feito. Após cada mudança importante no código, fazer um commit:
+
+```
+git add -A
+git commit -m "Mensagem descritiva"
+```
+
+3. Após o dia de serviço, upar todas as alterações no repósitorio remoto, no Github:
+
+```
+git push origin master
+```
