@@ -3,7 +3,7 @@ Dicas para o GitHub
 
 A ideia do _GitHub_ é ser um hospedeiro para os seus repositórios do _Git_, que, por sua vez, é uma ferramenta de versionamento de código, ou seja, você pode guardar todas as versões dos seus programas nele.
 
-Alguns conceitos fundamentais do Git são o de _branch_, _remote_ e _commit_.
+Alguns conceitos fundamentais do Git são o de _branch_ e _commit_.
 
 Para inicializar um repositório em uma pasta digite o comando:
 
@@ -23,6 +23,25 @@ Por exemplo, suponha que há um repositório no link [github.com/ishiikurisu/LAD
 git clone https://github.com/ishiikurisu/LADL.git
 ```
 
+Uma coisa muita boa de se fazer é já guardar o endereço do seu repositório remoto quando criá-lo:
+
+```
+git remote add <nome> <link>
+```
+
+Vamos supor que você queira guardar o link do repositório [github.com/ishiikurisu/LADL](https://github.com/ishiikurisu/LADL) na variável `origin`:
+
+```
+git remote add origin https://github.com/ishiikurisu/LADL
+```
+
+Isso será útil mais tarde, quando formos baixar e upar o código para o GitHub. Além disso, pode ser útil setar as suas informações no repositório local para poder te identificar mais rapidamente na hora de upar:
+
+```
+git config --global user.name "Joe Frank"
+git conif -- global user.mail "joe@crisjr.eng.br"
+```
+
 GitHub
 ------
 
@@ -39,15 +58,55 @@ Em geral, este comando se resume a:
 git pull origin master
 ```
 
-Que vai carregar o trabalho do repositório remoto no seu computador.
+Que vai carregar o trabalho do repositório remoto no seu computador. Se der algum conflito, quer dizer que está na hora de fazer um merge no código. Ou seja,
 
-<!-- TODO Continuar falando sobre GitHub. Upar código. Merging = dar merda  -->
+Para upar o código no repositório, primeiro faça um commit do código (que será explicado mais tarde), depois use o comando:
+
+```
+git push <origem> <branch>
+```
+
+Isto empurrará a branch atual para o repositório remoto indicado na origem no branch descrito. Por exemplo: vamos supor que você que esteja na branch master no seu repositório local. Após realizar o commit, você usaria o comando:
+
+```
+git push origin master
+```
+
+Para upar a versão atual da branch master na branch master do repositório remoto indicado em origin. O git irá pedir o nome do seu
 
 Branches
 --------
 
-Um branch é uma linha de desenvolvimento do código. Podem ocorrer vários desenvolvimentos em paralelo da aplicação, sem que uma linha de trabalho interfira na outra. Para tanto, cada linha se desenvolverá em uma ramificação separada.
+Um branch é uma linha de desenvolvimento do código. Podem ocorrer vários desenvolvimentos em paralelo da aplicação, sem que uma linha de trabalho interfira na outra. Para tanto, cada linha se desenvolverá em uma ramificação separada. Por padrão, a linha de desenvolvimento principal é chamada de `master`.
 
-<!-- TODO Falar sobre como criar um branch, e mudar de branch. Como fazer merging  -->
+Para se conferir qual a branch atual:
 
-<!-- TODO Falar sobre os tópicos restantes  -->
+```
+git branch
+```
+
+Naturalmente, podem ser criadas outras branches, usando o comando:
+
+```
+git branch <nome>
+```
+
+Para se mudar para uma outra branch, usa-se o comando
+
+```
+git checkout <nome>
+```
+
+Não se esqueça de salvar seu trabalho na branch atual antes de mudar!
+
+Commit
+------
+
+Quando você faz um commit, isso quer dizer que você está se responsabilizando por aquelas mudanças no código, e salva tais alterações no sistema do Git, para poder upar este código no GitHub ou até mesmo voltar para esta versão do código.
+
+Para realizar um commit, usamos:
+
+```
+git add -A
+git commit -m "Mensagem de commit"
+```
