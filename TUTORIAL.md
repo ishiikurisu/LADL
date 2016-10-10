@@ -39,7 +39,7 @@ Isso será útil mais tarde, quando formos baixar e upar o código para o GitHub
 
 ```
 git config --global user.name "Joe Frank"
-git conif -- global user.mail "joe@crisjr.eng.br"
+git config --global user.mail "joe@crisjr.eng.br"
 ```
 
 GitHub
@@ -72,7 +72,7 @@ Isto empurrará a branch atual para o repositório remoto indicado na origem no 
 git push origin master
 ```
 
-Para upar a versão atual da branch master na branch master do repositório remoto indicado em origin. O git irá pedir o nome do seu
+Para upar a versão atual da branch master na branch master do repositório remoto indicado em origin. O git irá pedir o nome do seu usuário no GitHub e sua senha.
 
 Branches
 --------
@@ -109,6 +109,12 @@ Para realizar um commit, usamos:
 ```
 git add -A
 git commit -m "Mensagem de commit"
+```
+
+Caso contrário, pode-se recusar o trabalho realizado em vez de dar commit. Para tanto:
+
+```
+git checkout <arquivo para recusar>
 ```
 
 TL;DR
